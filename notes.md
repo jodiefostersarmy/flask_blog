@@ -15,4 +15,7 @@ Q: What is a Blueprint?
 A: A Blueprint is a way to organize a group of related views and other code.
  - for example: This blog we are creating, we are going to create a Blueprint for the authentication functions and one for the blog posts functions.
 
- 
+
+- The name associated with a view, is called an **endpoint**.
+
+- **Templates** are files that contain static data as well as placeholders for dynamic data.

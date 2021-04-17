@@ -11,11 +11,11 @@ with open(os.path.join(os.path.dirname(__file__), 'data.sql'), 'rb') as f:
 
 @pytest.fixture
 def app():
-    db_fd, db_path = tempfile.mkstemp()
+    db_fd, db_path = tempfile.mkstemp()         # opens a temp file, returns file object and path to it.
 
     app = create_app({
-        'TESTING': True,
-        'DATABASE': db_path,
+        'TESTING': True,                        # tells Flask that app is in TEST mode.
+        'DATABASE': db_path,                    # DATABASE path overridden to point to the temp path instead of instance folder
     })
 
     with app.app_context():
@@ -24,12 +24,12 @@ def app():
 
     yield app
 
-    os.close(db_fd)
+    os.close(db_fd)                             # once done, the temp database is closed
     os.unlink(db_path)
 
 
 @pytest.fixture
-def client(app):
+def client(app):                                # tells flask to use the client and not run the server
     return app.test_client()
 
 

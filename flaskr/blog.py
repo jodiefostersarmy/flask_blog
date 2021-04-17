@@ -27,7 +27,7 @@ def create():
         error = None
 
         if not title:
-            error = 'Title is required'
+            error = 'Title is required.'
 
         if error is not None:
             flash(error)
@@ -71,7 +71,7 @@ def update(id):
         error = None
     
         if not title:
-            error = 'Title is required'
+            error = 'Title is required.'
 
         if error is not None:
             flash(error)
@@ -86,7 +86,7 @@ def update(id):
             return redirect(url_for('blog.index'))
     return render_template('blog/update.html', post=post)
 
-@bp.route('/<int:id>delete', methods=('POST',))
+@bp.route('/<int:id>/delete', methods=('POST',))
 @login_required
 def delete(id):
     get_post(id)
